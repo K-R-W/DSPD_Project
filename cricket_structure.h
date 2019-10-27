@@ -32,7 +32,7 @@ struct player
 
 struct team
 {
-    char *player[15];
+    struct player all_players[15];
 }
 
 struct match_played
