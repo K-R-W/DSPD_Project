@@ -2,7 +2,12 @@
 #include "cricket_structure.h"
 void main()
 {
-    struct player player1[15] = {{"jon","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","out"}, {"snow","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","out"}, {"tyrion","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","out"}, {"olenna","M2019.1",56,30,2,1,310,4,1,45,1,"bowler","not out"}, {"geoffrey","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","not out"}, {"tywin","M2019.1",56,30,2,1,310,4,1,45,1,"all-rounder","not out"};
+    struct player player1[15] = {{"jon","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","out"}
+    , {"snow","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","out"}
+    , {"tyrion","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","out"}
+    , {"olenna","M2019.1",56,30,2,1,310,4,1,45,1,"bowler","not out"}
+    , {"geoffrey","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","not out"}
+    , {"tywin","M2019.1",56,30,2,1,310,4,1,45,1,"all-rounder","not out"};
     , {"illiana","M2019.1",56,30,2,1,310,4,1,45,1,"bowler","not out"}
     , {"mance","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","not out"}
     , {"george","M2019.1",56,30,2,1,310,4,1,45,1,"bowler","not out"}
