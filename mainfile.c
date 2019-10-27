@@ -17,6 +17,6 @@ void main()
     , {"drogon","M2019.1",56,30,2,1,310,4,1,45,1,"bowler","not out"}
     , {"mellisandre","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","not out"}
     , {"agatha","M2019.1",56,30,2,1,310,4,1,45,1,"all-rounder","not out"}};
-    struct team team1[15] = {player1,player2,player3,player4,player5,player6,player7,player8,player9,player10,player11,player12,player13,player14,player15};
+    struct team team1[15] = {player1[0],player1[1],player1[2],player1[3],player1[4],player1[5],player1[6],player1[7],player1[8],player1[9],player1[10],player1[11],player1[12],player1[13],player1[14]};
 
 }
