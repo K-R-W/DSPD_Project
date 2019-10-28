@@ -6,7 +6,7 @@ struct player
     char *player_id;
     /*here, player_id will be a string, but has not been assigned a size. this shall be done using %ms instead of %s during scanf
 
-    
+
     #include <stdio.h>
         int main(){
         char *player_id;
@@ -28,12 +28,12 @@ struct player
     int present_match_wicket;
     char *player_role;
     char *out_status;
-}
+};
 
 struct team
 {
     struct player all_players[15];
-}
+};
 
 struct match_played
 {
@@ -42,5 +42,5 @@ struct match_played
     int highest_run;
     char *man_of_the_match;
     char *wicket_taken_by_pacer;
-    char *match_result;    
+    char *match_result;
 }
