@@ -26,7 +26,8 @@ struct player
     int century;
     int present_match_score;
     int present_match_wicket;
-    char *player_role;
+    //player role to be bowler=-1 all rounder=0 batsman=1
+    int player_role;
     char *out_status;
 };
 
