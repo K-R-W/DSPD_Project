@@ -17,7 +17,7 @@ void main()
     , {"drogon","M2019.1",56,30,2,1,310,4,1,45,1,"bowler","not out"}
     , {"mellisandre","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","not out"}
     , {"agatha","M2019.1",56,30,2,1,310,4,1,45,1,"all-rounder","not out"}};
-    struct team team1[15] = {player1[0],player1[1],player1[2],player1[3],player1[4],player1[5],player1[6],player1[7],player1[8],player1[9],player1[10],player1[11],player1[12],player1[13],player1[14]};
+    struct team teams[1][15] = {player1[0],player1[1],player1[2],player1[3],player1[4],player1[5],player1[6],player1[7],player1[8],player1[9],player1[10],player1[11],player1[12],player1[13],player1[14]};
 
 
     struct player player2[15] = {{"sumit","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","out"}
@@ -35,5 +35,15 @@ void main()
     , {"nisarg","M2019.1",56,30,2,1,310,4,1,45,1,"bowler","not out"}
     , {"jayesh","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","not out"}
     , {"mahesh","M2019.1",56,30,2,1,310,4,1,45,1,"all-rounder","not out"}};
-    struct team team2[15] = {player2[0],player2[1],player2[2],player2[3],player2[4],player2[5],player2[6],player2[7],player2[8],player2[9],player2[10],player2[11],player2[12],player2[13],player2[14]};
+    struct team teams[2][15] = {player2[0],player2[1],player2[2],player2[3],player2[4],player2[5],player2[6],player2[7],player2[8],player2[9],player2[10],player2[11],player2[12],player2[13],player2[14]};
+
+
+
+    struct match_played matches[4] = {{"M2019.1","1,3",102,"geoffrey","george","1" },{"M2019.1","1,3",102,"geoffrey","george","1" },{"M2019.1","1,3",102,"geoffrey","george","1" },{"M2019.1","1,3",102,"geoffrey","george","1" }};
+    
+    
+
+
+
+
 }
