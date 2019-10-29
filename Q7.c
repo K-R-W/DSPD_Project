@@ -8,8 +8,7 @@
 int man_of_the_match_finder(int k,struct match_played matches[]){
     int length=sizeof(matches)/sizeof(matches[0]),i,j,flag=0;
 
-
-    // HERE
+    //HERE
     char names[length],times[length],temp[length];
     for(i=0;i<length;i++){
         for(j=0;j<length;j++){
