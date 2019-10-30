@@ -4,7 +4,7 @@
 
 
 
-}
+
 int man_of_the_match_finder(int k,struct match_played matches[]){
     int length=sizeof(matches)/sizeof(matches[0]),i,j,flag=0;
 
@@ -26,7 +26,7 @@ int man_of_the_match_finder(int k,struct match_played matches[]){
 
         }
     }
-    j=0
+    j=0;
     for(i=0;i<length;i++){
         if(times[i]>k){
             temp[j]=names[i];
@@ -60,7 +60,7 @@ void merge_2key(int arr[], int l, int m, int r, char original[])
     int n2 =  r - m;
 
     /* create temp arrays */
-    int L[n1], R[n2], L1[n1], L2[n2];
+    int L[n1], R[n2], L1[n1], R1[n2];
 
     /* Copy data to temp arrays L[] and R[] */
     for (i = 0; i < n1; i++)
