@@ -30,15 +30,15 @@ int man_of_the_match_finder(int k,struct match_played matches[]){
     for(i=0;i<length;i++){
         if(times[i]>k){
             temp[j]=names[i];
-            j++
+            j++;
         }
     }
     return temp;
 }
 
-int men_of_match_sort(char temp[], struct match_played matches[], struct team teams){
+int men_of_match_sort(char temp[], struct match_played matches[], struct team teams[][]){
     int i,j,k,t=0,length=sizeof(temp)/sizeof(temp[0]),century[length];
-    for(i=0;i<2;i++){
+    for(i=0;i<2;i++){//no of teams
         for(j=0;j<15;j++){
             for(k=0;k<length;k++){
                 if(strcmp(temp[k],teams[i].all_players[j].player_id)==0){
