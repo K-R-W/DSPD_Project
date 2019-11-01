@@ -6,7 +6,7 @@
 //  Copyright © 2019 Prathit Aswar. All rights reserved.
 //
 
-#include "asssign.h"
+#include "assign.h"
 #include<stdio.h>
 #include<math.h>
 

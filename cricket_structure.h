@@ -42,6 +42,7 @@ struct match_played
     char *teams_played;
     int highest_run;
     char *man_of_the_match;
-    char *wicket_taken_by_pacer;
+    int wicket_taken_by_pacer;
     char *match_result;
+    int total_wickets_taken;
 }

@@ -39,7 +39,7 @@ void main()
 
 
 
-    struct match_played matches[4] = {{"M2019.1","1,3",102,"geoffrey","george","1" },{"M2019.1","1,3",102,"geoffrey","george","1" },{"M2019.1","1,3",102,"geoffrey","george","1" },{"M2019.1","1,3",102,"geoffrey","george","1" }};
+    struct match_played matches[4] = {{"M2019.1","1,3",102,"geoffrey",2,"1",14 },{"M2019.1","1,3",102,"geoffrey",2,"1",14 },{"M2019.1","1,3",102,"geoffrey",2,"1",14 },{"M2019.1","1,3",102,"geoffrey",2,"1",14 }};
     
     
 
