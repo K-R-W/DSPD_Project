@@ -230,31 +230,41 @@ void quickSort_wavg(struct player player[], int low, int high)
 
 //
 //
-
-void combinationUtil(struct team team , int n, int r, int index, struct player data[], int i, int bow, int bat)
+int gu=1;
+void combinationUtil(struct team team , int n, int r, int index, struct player data[], int i, int bat, int bow)
 {
-    if (index == r && bow <=0 && bat <=0)
+    if (index == r)
     {
-        printf("%s\t",team.all_players[0].player_id);
-        printf("%s\t",team.all_players[1].player_id);
-        printf("%s\t",team.all_players[14].player_id);
-        printf("%s\t",team.all_players[13].player_id);
-        for (int j=0; j<r ; j++)
-            printf("%s\t ",data[j].player_id);
+        if (bat <= 0 && bow <= 0){
+        printf("%d %d %d %s  ",bat, bow,gu++,team.all_players[0].player_id);
+        printf("%s  ",team.all_players[1].player_id);
+        printf("%s  ",team.all_players[14].player_id);
+        printf("%s  ",team.all_players[13].player_id);
+        for (int j=0; j<r; j++)
+            printf("%s   ",data[j].player_id);
         printf("\n");
+
+        }
         return;
     }
 
     if (i >= n+2)
-        //printf("\n");
         return;
 
     data[index] = team.all_players[i];
-    if(team.all_players.player_role==1) bat--;
-    if(team.all_players.player_role==-1) bow--;
 
-    combinationUtil(team, n, r, index+1, data, i+1, bow, bat);
-    combinationUtil(team, n, r, index, data, i+1, bow, bat);
+    //bat--;
+    //bow--;
+    if (team.all_players[i].player_role == 1) {bat--;
+    //printf("  b%d  ",team.all_players[i].player_role);
+
+    }
+    if (team.all_players[i].player_role == -1) {bow--;
+    //printf("  a%d  ",team.all_players[i].player_role);
+
+    }
+    combinationUtil(team, n, r, index+1, data, i+1,bat,bow);
+    combinationUtil(team, n, r, index, data, i+1,bat,bow);
 }
 
 void printCombination(struct team team, int n, int r)
@@ -263,13 +273,12 @@ void printCombination(struct team team, int n, int r)
     struct player data[r];
 
     // Print all combination using temprary array 'data[]'
-    combinationUtil(team, n, r, 0, data, 2, 4,5);
+    combinationUtil(team, n, r, 0, data, 2 ,3,2);
 }
 
 void build_team(struct team team)
 {
     //int arr[] = {1, 2, 3, 4, 5};
-
     int r = 7;
     int n = 11;
     printCombination(team, n, r);
@@ -287,21 +296,21 @@ void build_team(struct team team)
 
 int main()
 {
-    struct player player1[15] = {{"jon","M2019.1",58,30,2,1,310,4,1,45,1,-1,"out"}
-    , {"snow","M2019.1",57,30,2,1,310,4,1,45,1,-1,"out"}
-    , {"tyrion","M2019.1",58,30,2,1,310,4,1,45,1,-1,"out"}
+    struct player player1[15] = {{"jon","M2019.1",56,30,2,1,310,4,1,45,1,1,"out"}
+    , {"snow","M2019.1",57,30,2,1,310,4,1,45,1,1,"out"}
+    , {"tyrion","M2019.1",58,30,2,1,310,4,1,45,1,1,"out"}
     , {"olenna","M2019.1",59,30,2,1,310,4,1,45,1,1,"not out"}
     , {"geoffrey","M2019.1",60,30,2,1,310,4,1,45,1,1,"not out"}
     , {"tywin","M2019.1",61,30,2,1,310,4,1,45,1,0,"not out"}
-    , {"illiana","M2019.1",62,30,2,1,310,4,1,45,1,1,"not out"}
-    , {"mance","M2019.1",63,30,2,1,310,4,1,45,1,-1,"not out"}
-    , {"george","M2019.1",64,30,2,1,310,4,1,45,1,1,"not out"}
-    , {"night king","M2019.1",65,30,2,1,310,4,1,45,1,-1,"not out"}
+    , {"illiana","M2019.1",62,30,2,1,310,4,1,45,1,0,"not out"}
+    , {"mance","M2019.1",63,30,2,1,310,4,1,45,1,0,"not out"}
+    , {"george","M2019.1",64,30,2,1,310,4,1,45,1,0,"not out"}
+    , {"night king","M2019.1",65,30,2,1,310,4,1,45,1,0,"not out"}
     , {"ollie","M2019.1",66,30,2,1,310,4,1,45,1,0,"not out"}
     , {"samwell","M2019.1",67,30,2,1,310,4,1,45,1,-1,"not out"}
-    , {"drogon","M2019.1",68,30,2,1,310,4,1,45,1,1,"not out"}
+    , {"drogon","M2019.1",68,30,2,1,310,4,1,45,1,-1,"not out"}
     , {"mellisandre","M2019.1",69,30,2,1,310,4,1,45,1,-1,"not out"}
-    , {"agatha","M2019.1",70,30,2,1,310,4,1,45,1,0,"not out"}};
+    , {"agatha","M2019.1",70,30,2,1,310,4,1,45,1,-1,"not out"}};
 
     struct player player2[15] = {{"sumit","M2019.1",56,30,2,1,310,4,1,45,1,-1,"out"}
        , {"manohar","M2019.1",56,30,2,1,310,4,1,45,1,-1,"out"}
@@ -331,27 +340,35 @@ int main()
     quickSort_pr(teams[0].all_players,0,14);
     int p=0,flag=0;
     while(p<15 && flag==0){
+        p++;
         if(teams[0].all_players[p].player_role==0)
         {
             flag=1;
         }
-        p++;
     }
-    quickSort_pts(teams[0].all_players,0,p-1);
-    quickSort_preav(teams[0].all_players,0,p-1);
+    int k;
+    for(k=0;k<15;k++){
+        printf("%s\t",teams[0].all_players[k].player_id);
+    }
+    printf("\n");
+
+    quickSort_maxw(teams[0].all_players,0,p-1);
+    quickSort_wavg(teams[0].all_players,0,p-1);
+
     int q=0;
     flag=0;
     while(q<15 && flag==0){
+        q++;
         if(teams[0].all_players[q].player_role==1)
         {
             flag=1;
         }
-        q++;
+
     }
     //quickSort_pts(teams[0].all_players,p,q-1);
-    quickSort_maxw(teams[0].all_players,q,14);
-    quickSort_wavg(teams[0].all_players,q,14);
-    int k;
+    quickSort_pts(teams[0].all_players,q,14);
+    quickSort_preav(teams[0].all_players,q,14);
+    //int k;
     for(k=0;k<15;k++){
         printf("%s\t",teams[0].all_players[k].player_id);
     }
