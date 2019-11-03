@@ -44,5 +44,4 @@ struct match_played
     char *man_of_the_match;
     int wicket_taken_by_pacer;
     char *match_result;
-    int total_wickets_taken;
 }
