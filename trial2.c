@@ -231,12 +231,25 @@ void quickSort_wavg(struct player player[], int low, int high)
 //
 //
 int gu=1;
-void combinationUtil(struct team team , int n, int r, int index, struct player data[], int i, int bat, int bow)
+void combinationUtil(struct team team , int n, int r, int index, struct player data[], int i, int bat, int bow, int allround)
 {
     if (index == r)
     {
-        if (bat <= 0 && bow <= 0){
-        printf("%d %d %d %s  ",bat, bow,gu++,team.all_players[0].player_id);
+        for (int ge=0; ge< 14 ; ge++){
+            if (data[ge].player_role == -1) {bow++;
+            //printf("  b%d  ",team.all_players[i].player_role);
+
+            }
+            else if (data[ge].player_role == 1) {bat++;
+            //printf("  a%d  ",team.all_players[i].player_role);
+
+            }
+            else if (data[ge].player_role == 0){
+                allround++;
+            }
+        }
+        if (bat >=5  && bow >=4 && (bat+bow+allround==11)){
+        printf("%d %d %d %d %s  ",bow, bat,allround,gu++,team.all_players[0].player_id);
         printf("%s  ",team.all_players[1].player_id);
         printf("%s  ",team.all_players[14].player_id);
         printf("%s  ",team.all_players[13].player_id);
@@ -253,18 +266,8 @@ void combinationUtil(struct team team , int n, int r, int index, struct player d
 
     data[index] = team.all_players[i];
 
-    //bat--;
-    //bow--;
-    if (team.all_players[i].player_role == 1) {bat--;
-    //printf("  b%d  ",team.all_players[i].player_role);
-
-    }
-    if (team.all_players[i].player_role == -1) {bow--;
-    //printf("  a%d  ",team.all_players[i].player_role);
-
-    }
-    combinationUtil(team, n, r, index+1, data, i+1,bat,bow);
-    combinationUtil(team, n, r, index, data, i+1,bat,bow);
+    combinationUtil(team, n, r, index+1, data, i+1,bat,bow,allround);
+    combinationUtil(team, n, r, index, data, i+1,bat,bow,allround);
 }
 
 void printCombination(struct team team, int n, int r)
@@ -273,7 +276,7 @@ void printCombination(struct team team, int n, int r)
     struct player data[r];
 
     // Print all combination using temprary array 'data[]'
-    combinationUtil(team, n, r, 0, data, 2 ,3,2);
+    combinationUtil(team, n, r, 0, data, 2 ,2,2,0);
 }
 
 void build_team(struct team team)
