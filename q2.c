@@ -24,6 +24,13 @@ char highest_total_rungetter(struct team teams[]){
 
 }
 
+void swapa(char **a, char **b)
+{
+    char* t ;
+    t = *a;
+    *a = *b;
+    *b = t;
+}
 int partition_name(char* player[], int low, int high)
 {
     char *pivot =player[high];
@@ -31,13 +38,13 @@ int partition_name(char* player[], int low, int high)
 
     for (int j = low; j <= high- 1; j++)
     {
-      if(strcmp(player[j],pivot) < 0) //comparing the strings
+      if(strcmp(player[j], pivot) < 0) //comparing the strings
       {
         i++;
-        swap(&player[i], &player[j]);
+        swapa(&player[i], &player[j]);
       }
     }
-    swap(&player[i + 1], &player[high]);
+    swapa(&player[i + 1], &player[high]);
 
     return (i + 1);
 }
@@ -47,9 +54,9 @@ void quickSort_name(char* player[], int low, int high)
     if (low < high)
     {
 
-        int pi = partition_pr(player, low, high);
+        int pi = partition_name(player, low, high);
 
-        quickSort_pr(player, low, pi - 1);
-        quickSort_pr(player, pi + 1, high);
+        quickSort_name(player, low, pi - 1);
+        quickSort_name(player, pi + 1, high);
     }
 }
