@@ -2,7 +2,7 @@
 #include <string.h>
 
 
-
+char* mamcen[length];
 
 
 int man_of_the_match_finder(int k,struct match_played matches[]){
@@ -10,7 +10,7 @@ int man_of_the_match_finder(int k,struct match_played matches[]){
 
 
 
-    char times[length],temp[length];
+    char times[length];
     char* names[length];
     for(i=0;i<length;i++){
         for(j=0;j<length;j++){
@@ -29,14 +29,14 @@ int man_of_the_match_finder(int k,struct match_played matches[]){
     j=0;
     for(i=0;i<length;i++){
         if(times[i]>k){
-            temp[j]=names[i];
+            mamcen[j]=names[i];
             j++;
         }
     }
-    return temp;
+    return mamcen;
 }
 
-int men_of_match_sort(char temp[], struct match_played matches[], struct team teams[][]){
+void men_of_match_sort(char temp[], struct match_played matches[], struct team teams[][]){
     int i,j,k,t=0,length=sizeof(temp)/sizeof(temp[0]),century[length];
     for(i=0;i<2;i++){//no of teams
         for(j=0;j<15;j++){
@@ -127,5 +127,41 @@ void mergeSort_2key(int arr[], int l, int r, char original[])
         mergeSort_2key(arr, m+1, r,original);
 
         merge_2key(arr, l, m, r,original);
+    }
+}
+
+
+int partition_name(char* player[], int low, int high)
+{
+    char *pivot =player[high];
+    int i = (low - 1);
+
+    for (int j = low; j <= high- 1; j++)
+    {
+      if(strcmp(player[j],pivot) > 0) //comparing the strings
+      {
+        i++;
+        swap(&player[i], &player[j]);
+      }
+        if (player[j].player_role < pivot)
+        {
+            i++;
+            swap(&player[i], &player[j]);
+        }
+    }
+    swap(&player[i + 1], &player[high]);
+
+    return (i + 1);
+}
+
+void quickSort_name(char* player[], int low, int high)
+{
+    if (low < high)
+    {
+
+        int pi = partition_pr(player, low, high);
+
+        quickSort_pr(player, low, pi - 1);
+        quickSort_pr(player, pi + 1, high);
     }
 }
