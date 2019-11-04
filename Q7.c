@@ -138,16 +138,11 @@ int partition_name(char* player[], int low, int high)
 
     for (int j = low; j <= high- 1; j++)
     {
-      if(strcmp(player[j],pivot) > 0) //comparing the strings
+      if(strcmp(player[j],pivot) < 0) //comparing the strings
       {
         i++;
         swap(&player[i], &player[j]);
       }
-        if (player[j].player_role < pivot)
-        {
-            i++;
-            swap(&player[i], &player[j]);
-        }
     }
     swap(&player[i + 1], &player[high]);
 
