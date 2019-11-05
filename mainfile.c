@@ -1,6 +1,68 @@
-#include <stdio.h>
-#include "cricket_structure.h"
-void main()
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<string.h>
+#include "q1.h"
+#include "q2.h"
+#include "q3.h"
+#include "q4.h"
+#include "q5.h"
+#include "q6.h"
+#include "q7.h"
+
+
+
+
+
+
+struct player
+{
+    char *player_id;
+    /*here, player_id will be a string, but has not been assigned a size. this shall be done using %ms instead of %s during scanf
+
+
+    #include <stdio.h>
+        int main(){
+        char *player_id;
+        printf("enter name");
+        scanf("%ms",&player_id);
+        printf("name is %s",player_id);
+        return 0;
+        }
+    */
+    char *match_id;
+    int previous_total_score;
+    float previous_avg;
+    int previous_total_wickets;
+    float previous_wicket_avg;
+    int total_runs_in_last_five_matches;
+    int total_wickets_in_last_five_matches;
+    int century;
+    int present_match_score;
+    int present_match_wicket;
+    //player role to be bowler=-1 all rounder=0 batsman=1
+    int player_role;
+    char *out_status;
+};
+
+struct team
+{
+    struct player all_players[15];
+};
+
+struct match_played
+{
+    char *match_id;
+    char *teams_played;
+    int highest_run;
+    char *man_of_the_match;
+    int wicket_taken_by_pacer;
+    char *match_result;
+}
+
+
+
+int main()
 {
     struct player player1[15] = {{"jon","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","out"}
     , {"snow","M2019.1",56,30,2,1,310,4,1,45,1,"batsman","out"}
@@ -109,9 +171,16 @@ void main()
     //6 knockouts, 2 semifinals, 1 final
     struct match_played matches[9] = {{"M2019.1","1,2",102,"geoffrey",2,"1"},{"M2019.1","1,3",102,"geoffrey",2,"1"},{"M2019.1","2,3",102,"geoffrey",2,"3"},{"M2019.1","4,5",102,"geoffrey",2,"5"},{"M2019.1","4,6",102,"geoffrey",2,"4"},{"M2019.1","5,6",102,"geoffrey",2,"5"},{"M2019.1","1,5",102,"geoffrey",2,"1"},{"M2019.1","3,4",102,"geoffrey",2,"3"},{"M2019.1","1,3",102,"geoffrey",2,"3"}};
     
-    
 
+    run_q1(teams);//q1
+    highest_total_rungetter(teams);//q2
+    man_of_the_match_max(k,matches);//q3
+    Qtwo_Qthree(char *temp1[],m,char *temp2[],n);//q4,citation needed
+    highest_avg(teams);//q5
+    wicket_difference(matches);//q6, extra attribute used but not declared
+    //char temp7[]=
+    man_of_the_match_finder(k,matches);
+    men_of_match_sort(mamcen,matches,teams);//q7
 
-
-
+    return 0;
 }
